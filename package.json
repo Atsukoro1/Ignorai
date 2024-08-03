@@ -10,6 +10,9 @@
   "bin": {
     "ignorai": "dist/index.js"
   },
+  "repository": {
+    "url": "https://github.com/Atsukoro1/Ignorai"
+  },
   "scripts": {
     "format": "prettier ./src --write",
     "prepare": "husky",
