@@ -16,20 +16,28 @@ export const entry = async () => {
   );
   progressBar.start(6, 1);
 
-  const folderBase = getBaseFolderStructure();
-  progressBar.increment();
+  try {
+    const folderBase = getBaseFolderStructure();
+    progressBar.increment();
 
-  const relevantFiles = await analyzeRelevantFiles(folderBase);
-  progressBar.increment();
+    const relevantFiles = await analyzeRelevantFiles(folderBase);
+    progressBar.increment();
 
-  const fileContents = readImportantFiles(relevantFiles);
-  progressBar.increment();
+    const fileContents = readImportantFiles(relevantFiles);
+    progressBar.increment();
 
-  const ignoreFile = await determineIgnoreFile(fileContents);
-  progressBar.increment();
+    const ignoreFile = await determineIgnoreFile(fileContents);
+    progressBar.increment();
 
-  saveIgnoreFile(ignoreFile);
-  progressBar.increment();
+    saveIgnoreFile(ignoreFile);
+    progressBar.increment();
 
-  progressBar.stop();
+    progressBar.stop();
+  } catch (err) {
+    console.error("❌ Error generating ignore file:", err);
+    progressBar.stop();
+    return;
+  }
+
+  console.log("✅ Ignore file generated successfuly!");
 };

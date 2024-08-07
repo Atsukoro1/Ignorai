@@ -8,5 +8,5 @@ export const entry = (token: string, option: Options) => {
   createStoreDirectories();
   saveApiToken(token);
 
-  console.log("Configuration saved succesfully!");
+  console.log("✅ Configuration saved succesfully!");
 };

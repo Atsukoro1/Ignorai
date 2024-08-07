@@ -25,6 +25,7 @@
   "description": "",
   "main": "src/index.ts",
   "devDependencies": {
+    "@types/bun": "latest",
     "@types/cli-progress": "^3.11.6",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^22.0.0",
